@@ -1,0 +1,37 @@
+# ==========================
+# Build Output
+# ==========================
+Debug/
+Release/
+*.o
+*.d
+*.elf
+*.map
+*.list
+
+
+# ==========================
+# STM32CubeIDE / Eclipse
+# ==========================
+.settings/
+
+
+# ==========================
+# Proteus Generated Files
+# ==========================
+Project Backups/
+*.workspace
+
+
+# ==========================
+# Temporary Files
+# ==========================
+*.tmp
+*.log
+
+
+# ==========================
+# Operating System Files
+# ==========================
+.DS_Store
+Thumbs.db
