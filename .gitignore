@@ -8,6 +8,10 @@ Release/
 *.elf
 *.map
 *.list
+*.hex
+*.bin
+*.axf
+*.srec
 
 
 # ==========================
