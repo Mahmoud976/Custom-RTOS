@@ -1,5 +1,15 @@
-﻿# Custom RTOS Kernel for ARM Cortex-M3
+﻿# Custom-RTOS
 
+[![Release](https://img.shields.io/github/v/release/Mahmoud976/Custom-RTOS)](https://github.com/Mahmoud976/Custom-RTOS/releases/tag/v1.0.0)
+
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+## Overview
+
+Custom-RTOS is a lightweight educational RTOS kernel designed for ARM Cortex-M3 based systems.
+
+---
+# Custom RTOS Kernel for ARM Cortex-M3
 A lightweight Real-Time Operating System (RTOS) developed from scratch for ARM Cortex-M3.
 
 This project demonstrates the internal concepts of RTOS design including:
