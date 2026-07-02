@@ -112,6 +112,10 @@ Scheduler->>PendSV: New Task
 
 PendSV->>CPU: Restore Context
 ```
+### 🧠 Hardware-Software Context Switching Mechanics
+During the execution of the `PendSV_Handler`, the context saving and restoration are divided dynamically:
+* **Hardware Stacking:** The Cortex-M3 core automatically pushes the standard context registers (`xPSR`, `PC`, `LR`, `R12`, and `R3-R0`) onto the active task's Process Stack Pointer (PSP).
+* **Software Stacking:** The custom assembly handler manually pushes the remaining CPU registers (`R11` down to `R4`) onto the task stack before updating the Current TCB pointer, ensuring 100% state preservation.
 
 ---
 
@@ -147,6 +151,7 @@ Priority 5  -> High Task
 ```
 
 Scheduler selects the smallest priority value first according to the kernel implementation.
+* **O(1) Scheduler Determinism:** The scheduling algorithm processes task selection in a guaranteed constant time $O(1)$, completely independent of the number of active tasks created in the system, satisfying hard real-time constraints.
 
 ---
 
@@ -555,6 +560,14 @@ Prototype:
 
 ``` c
 void MY_RTOS_START_OS(void);
+```
+# 🔒 Kernel Critical Sections Guarding
+To ensure absolute determinism and prevent race conditions while modifying internal kernel structures (such as updating the Ready Queue or parsing task states), critical code sections are strictly guarded using native ARM assembly instructions to control global interrupts:
+
+```c
+__disable_irq(); // Enter Critical Section: Disables interrupts to lock Kernel states
+// Core Scheduler / Ready Queue modifications take place safely here
+__enable_irq();  // Exit Critical Section: Re-enables interrupts safely
 ```
 
 Example:
