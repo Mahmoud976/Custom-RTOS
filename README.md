@@ -639,12 +639,12 @@ Flow:
 
 
 ---
-
-# Author
-
-Mahmoud Saleh
-
-Embedded Systems Engineer
+## 👨‍💻 Author
+**Mahmoud Saleh**
+* Embedded Software Engineer
+* [GitHub Profile](https://github.com/Mahmoud976)
+* [LinkedIn Profile](https://www.linkedin.com/in/mahmoud-m-saleh/)
+---
 
 # License
 MIT
